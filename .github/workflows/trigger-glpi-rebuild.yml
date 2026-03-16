@@ -1,0 +1,20 @@
+name: Trigger GLPI Image Rebuild
+
+on:
+  push:
+    branches:
+      - master
+      - 'fix/**'
+  workflow_dispatch:
+
+jobs:
+  trigger-glpi-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger GabrAGM/glpi docker build
+        uses: peter-evans/repository-dispatch@v3
+        with:
+          token: ${{ secrets.GLPI_REBUILD_PAT }}
+          repository: GabrAGM/glpi
+          event-type: plugin-updated
+          client-payload: '{"plugin_ref": "${{ github.ref_name }}"}'
