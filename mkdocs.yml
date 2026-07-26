@@ -1,0 +1,5 @@
+site_name: GLPI Single Sign-On Plugin
+nav:
+  - Overview: index.md
+plugins:
+  - techdocs-core
