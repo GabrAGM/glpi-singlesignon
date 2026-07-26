@@ -1,0 +1,39 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: glpi-singlesignon
+  title: GLPI Single Sign-On Plugin
+  description: >-
+    GLPI plugin adding OAuth2/OIDC "Login with <provider>" buttons to the GLPI
+    login page. AGM configures the Azure AD provider (same Azure tenant used
+    by glpi-mcp-auth for MCP authentication) so staff can log into GLPI with
+    their AGM Microsoft account. Fork of edgardmessias/glpi-singlesignon.
+  tags:
+    - php
+    - glpi-plugin
+    - sso
+    - oauth2
+    - azure-ad
+  links:
+    - url: https://glpi.agmegypt.com
+      title: GLPI (live)
+      icon: dashboard
+    - url: https://github.com/AGM-One-Vision/glpi
+      title: GLPI (host application)
+      icon: github
+    - url: https://github.com/edgardmessias/glpi-singlesignon/wiki/Plugin-Provider-Options
+      title: Upstream — provider configuration wiki
+      icon: docs
+  annotations:
+    github.com/project-slug: AGM-One-Vision/glpi-singlesignon
+    backstage.io/techdocs-ref: dir:.
+    devhub.agm/visibility: internal
+    devhub.agm/origin: forked-oss
+    devhub.agm/upstream-repo: https://github.com/edgardmessias/glpi-singlesignon
+spec:
+  type: library
+  lifecycle: production
+  owner: group:default/dto
+  system: system:default/glpi
+  dependencyOf:
+    - component:default/glpi
